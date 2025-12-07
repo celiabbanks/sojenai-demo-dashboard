@@ -23,7 +23,7 @@ HEALTH_ENDPOINT = f"{API_BASE}/health"
 INFER_ENDPOINT = f"{API_BASE}/v1/infer"
 MITIGATE_ENDPOINT = f"{API_BASE}/v1/mitigate"
 
-LOGO_FILENAME = "JenAI-Moderator_CommIntell.png"
+LOGO_FILENAME = "JenAI-Moderator_Commintell.png"
 
 
 # -----------------------------
@@ -64,26 +64,6 @@ def load_logo():
         f"{checked_paths}"
     )
     return None
-
-# -----------------------------
-# Tiny debug code .. delete when fixed
-# -----------------------------
-
-import os
-from pathlib import Path
-
-st.markdown("### Debug: repo file check (temporary)")
-
-st.write("Current working directory:", os.getcwd())
-
-st.write("Top-level entries in CWD:")
-st.write([str(p) for p in Path(".").iterdir()])
-
-st.write("Any files matching 'JenAI*' in the repo:")
-st.write([str(p) for p in Path(".").rglob("JenAI*")])
-
-# ----------------------------
-
 
 def call_health() -> Dict[str, Any]:
     resp = requests.get(HEALTH_ENDPOINT, timeout=5)
