@@ -32,19 +32,23 @@ LOGO_FILENAME = "JenAI-Moderator_CommIntell.png"
 
 def load_logo():
     """
-    Load the JenAI-Moderator logo from assets/images/
-    relative to the project root.
+    Load the JenAI-Moderator logo from assets/images
+    relative to the repo root. This is safer on Streamlit Cloud
+    than relying on __file__-based path gymnastics.
     """
-    dashboard_dir = Path(__file__).resolve().parent
-    project_root = dashboard_dir  # now dashboard.py is at project root
-    img_path = project_root / "assets" / "images" / LOGO_FILENAME
+    img_path = Path("assets") / "images" / LOGO_FILENAME
 
-    if img_path.exists():
-        try:
-            return Image.open(img_path)
-        except Exception:
-            return None
-    return None
+    # Debug hint if it’s not found
+    if not img_path.is_file():
+        st.sidebar.warning(f"Logo not found at: {img_path}")
+        return None
+
+    try:
+        return Image.open(img_path)
+    except Exception as e:
+        st.sidebar.error(f"Error loading logo: {e}")
+        return None
+
 
 
 def call_health() -> Dict[str, Any]:
