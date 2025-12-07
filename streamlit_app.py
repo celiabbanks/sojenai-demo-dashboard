@@ -65,6 +65,24 @@ def load_logo():
     )
     return None
 
+# -----------------------------
+# Tiny debug code .. delete when fixed
+# -----------------------------
+
+import os
+from pathlib import Path
+
+st.markdown("### Debug: repo file check (temporary)")
+
+st.write("Current working directory:", os.getcwd())
+
+st.write("Top-level entries in CWD:")
+st.write([str(p) for p in Path(".").iterdir()])
+
+st.write("Any files matching 'JenAI*' in the repo:")
+st.write([str(p) for p in Path(".").rglob("JenAI*")])
+
+# ----------------------------
 
 
 def call_health() -> Dict[str, Any]:
