@@ -32,22 +32,38 @@ LOGO_FILENAME = "JenAI-Moderator_CommIntell.png"
 
 def load_logo():
     """
-    Load the JenAI-Moderator logo from assets/images
-    relative to the repo root. This is safer on Streamlit Cloud
-    than relying on __file__-based path gymnastics.
+    Robust logo loader that works whether this file lives at the repo root
+    or inside a subfolder like `.streamlit/`.
+
+    It tries several candidate paths and shows a helpful warning if none match.
     """
-    img_path = Path("assets") / "images" / LOGO_FILENAME
+    here = Path(__file__).resolve().parent
+    cwd = Path.cwd()
 
-    # Debug hint if it’s not found
-    if not img_path.is_file():
-        st.sidebar.warning(f"Logo not found at: {img_path}")
-        return None
+    candidates = [
+        # 1) Same folder as this file (if assets/ is sibling)
+        here / "assets" / "images" / LOGO_FILENAME,
+        # 2) Repo root one level up from this file
+        here.parent / "assets" / "images" / LOGO_FILENAME,
+        # 3) Current working directory (Streamlit often uses repo root as cwd)
+        cwd / "assets" / "images" / LOGO_FILENAME,
+    ]
 
-    try:
-        return Image.open(img_path)
-    except Exception as e:
-        st.sidebar.error(f"Error loading logo: {e}")
-        return None
+    for p in candidates:
+        if p.is_file():
+            try:
+                return Image.open(p)
+            except Exception as e:
+                st.sidebar.error(f"Error opening logo at {p}: {e}")
+                return None
+
+    # If we get here, nothing matched:
+    checked_paths = "\n".join(f"- {p}" for p in candidates)
+    st.sidebar.warning(
+        "Logo not found. Checked these locations:\n"
+        f"{checked_paths}"
+    )
+    return None
 
 
 
