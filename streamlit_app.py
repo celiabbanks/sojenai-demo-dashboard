@@ -33,7 +33,8 @@ def call_sojen_api(user_text: str):
 API_BASE = os.getenv(
     "SOJEN_API_BASE",
     "https://sojenai-demo-api.onrender.com"   # ← REAL RENDER URL, no slash at end
-)HEALTH_ENDPOINT = f"{API_BASE}/health"
+)
+HEALTH_ENDPOINT = f"{API_BASE}/health"
 INFER_ENDPOINT = f"{API_BASE}/v1/infer"
 MITIGATE_ENDPOINT = f"{API_BASE}/v1/mitigate"
 
