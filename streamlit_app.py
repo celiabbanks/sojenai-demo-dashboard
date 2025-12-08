@@ -92,7 +92,6 @@ def call_infer(texts: List[str]) -> Dict[str, Any]:
     resp.raise_for_status()
     return resp.json()
 
-
 def call_mitigate(text: str) -> Dict[str, Any]:
     """
     /v1/mitigate expects a JSON body like:
