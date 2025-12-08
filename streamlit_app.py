@@ -14,12 +14,26 @@ from gtts import gTTS
 import io
 
 
+API_URL = os.getenv(
+    "SOJEN_API_URL",
+    "https://sojenai-demo-api.onrender.com/v1/infer"  # <- REAL URL, no <>
+)
+
+def call_sojen_api(user_text: str):
+    payload = {"texts": [user_text]}
+    resp = requests.post(API_URL, json=payload, timeout=30)
+    resp.raise_for_status()
+    return resp.json()
+
+
 
 # -----------------------------
 # Config
 # -----------------------------
-API_BASE = os.getenv("SOJEN_API_BASE", "http://127.0.0.1:8010")
-HEALTH_ENDPOINT = f"{API_BASE}/health"
+API_BASE = os.getenv(
+    "SOJEN_API_BASE",
+    "https://sojenai-demo-api.onrender.com"   # ← REAL RENDER URL, no slash at end
+)HEALTH_ENDPOINT = f"{API_BASE}/health"
 INFER_ENDPOINT = f"{API_BASE}/v1/infer"
 MITIGATE_ENDPOINT = f"{API_BASE}/v1/mitigate"
 
