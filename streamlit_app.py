@@ -1,4 +1,4 @@
-# SoJenAI-Demo/.streamlit/dashboard.py
+# CODE: streamlit_app.py (cloud-ready, using Render backend)
 
 import torch
 import os
@@ -14,25 +14,14 @@ from gtts import gTTS
 import io
 
 
-API_URL = os.getenv(
-    "SOJEN_API_URL",
-    "https://sojenai-demo-api.onrender.com/v1/infer"  # <- REAL URL, no <>
-)
-
-def call_sojen_api(user_text: str):
-    payload = {"texts": [user_text]}
-    resp = requests.post(API_URL, json=payload, timeout=30)
-    resp.raise_for_status()
-    return resp.json()
-
-
-
 # -----------------------------
 # Config
 # -----------------------------
+# Default to Render backend in the cloud.
+# Locally, set SOJEN_API_BASE=http://127.0.0.1:8010 to override.
 API_BASE = os.getenv(
     "SOJEN_API_BASE",
-    "https://sojenai-demo-api.onrender.com"   # ← REAL RENDER URL, no slash at end
+    "https://sojenai-demo.onrender.com"  #  Render FastAPI base URL
 )
 HEALTH_ENDPOINT = f"{API_BASE}/health"
 INFER_ENDPOINT = f"{API_BASE}/v1/infer"
@@ -80,6 +69,7 @@ def load_logo():
     )
     return None
 
+
 def call_health() -> Dict[str, Any]:
     resp = requests.get(HEALTH_ENDPOINT, timeout=5)
     resp.raise_for_status()
@@ -88,9 +78,10 @@ def call_health() -> Dict[str, Any]:
 
 def call_infer(texts: List[str]) -> Dict[str, Any]:
     payload = {"texts": texts}
-    resp = requests.post(INFER_ENDPOINT, json=payload, timeout=120) # increased timeout from 30 sec to 120 for HF connection
+    resp = requests.post(INFER_ENDPOINT, json=payload, timeout=120)
     resp.raise_for_status()
     return resp.json()
+
 
 def call_mitigate(text: str) -> Dict[str, Any]:
     """
@@ -106,7 +97,7 @@ def call_mitigate(text: str) -> Dict[str, Any]:
         }
     """
     payload = {"text": text}
-    resp = requests.post(MITIGATE_ENDPOINT, json=payload, timeout=120) # increased timeout from 30 sec to 120
+    resp = requests.post(MITIGATE_ENDPOINT, json=payload, timeout=120)
     resp.raise_for_status()
     return resp.json()
 
@@ -216,12 +207,9 @@ JenAI-Moderator provides *Communication Intelligence* for:
     )
 
 
-
-
 # -----------------------------
 # Main title + Performance mode
 # -----------------------------
-# st.title("SoJen.AI — JenAI-Moderator")
 st.markdown("<h1>SoJen.AI™ — JenAI-Moderator™</h1>", unsafe_allow_html=True)
 st.subheader("Communication Intelligence for Bias Detection & Rewrite")
 
@@ -243,7 +231,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
 
 # Performance indicator: prefer device from last /v1/infer, else from /health
 perf_device = st.session_state.device or st.session_state.backend_device
@@ -605,9 +592,8 @@ if results:
                                     "an automatic bias mitigation rewrite._"
                                 )
 
-
 # -----------------------------
-# What This Demo Does NOT Show (NEW)
+# What This Demo Does NOT Show
 # -----------------------------
 st.markdown("""
 ## **What This Demo Does *Not* Show**
@@ -626,7 +612,6 @@ Specifically, this demo does **not** include:
 
 This demo is intended for evaluation of the **engine capabilities only**, not the total patented architecture.
 """)
-
 
 # -----------------------------
 # Copyright Footer
