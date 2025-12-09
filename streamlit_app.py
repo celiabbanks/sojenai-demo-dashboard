@@ -113,6 +113,16 @@ st.set_page_config(
 )
 logo = load_logo()
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: radial-gradient(circle at top left, #1b1f33 0%, #0b1020 45%, #050814 100%);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Initialize session state
 if "infer_results" not in st.session_state:
