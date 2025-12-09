@@ -98,7 +98,7 @@ def call_mitigate(text: str) -> Dict[str, Any]:
         }
     """
     payload = {"text": text}
-    headers = {"X-API-Key": os.getenv("SOJEN_API_KEY")}
+    headers = {"X-API-Key": os.getenv("SOJENAI_API_KEY")}
     resp = requests.post(MITIGATE_ENDPOINT, json=payload, headers=headers, timeout=120)
     resp.raise_for_status()
     return resp.json()
