@@ -21,7 +21,7 @@ import io
 # Locally, set SOJEN_API_BASE=http://127.0.0.1:8010 to override.
 API_BASE = os.getenv(
     "SOJEN_API_BASE",
-    "https//sojenai-demo-production.up.railway.app* # Railway FastAPI base URL
+    "https://sojenai-demo-production.up.railway.app* # Railway FastAPI base URL
 )
 HEALTH_ENDPOINT = f"{API_BASE}/health"
 INFER_ENDPOINT = f"{API_BASE}/v1/infer"
