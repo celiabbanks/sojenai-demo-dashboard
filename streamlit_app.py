@@ -202,10 +202,20 @@ JenAI-Moderator provides *Communication Intelligence* for:
     # Disclaimer 
     # -----------------------------
     st.markdown("### Legal / IP Notice")
-    st.caption(
-        "This demo is part of the patent-pending SoJen.AI system and is "
-        "provided for evaluation only. Please do not share this link externally."
+    st.markdown(
+        """
+    <span style="font-size:12px; opacity:0.75;">
+    This demo is part of the <strong>patent-pending SoJen.AI system</strong> and is 
+    provided for evaluation only. <strong>Please do not share this link externally.</strong>
+    </span>
+    """,
+        unsafe_allow_html=True,
     )
+
+    # st.caption(
+    #    "This demo is part of the patent-pending SoJen.AI system and is "
+    #    "provided for evaluation only. Please do not share this link externally."
+    #)
 
 
 # -----------------------------
@@ -621,8 +631,12 @@ st.markdown("""
 <hr style="margin-top:40px;">
 
 <div style="text-align:center; font-size:13px; color: #666;">
+<strong>Legal / IP Notice</strong><br>
 © 2025 SoJen.AI — All Rights Reserved.<br>
-This demonstration is part of a patent-pending system. Unauthorized sharing or distribution is prohibited.
+This demonstration is part of a <strong>patent-pending system</strong>.<br>
+Unauthorized sharing or distribution is prohibited.
 </div>
 """, unsafe_allow_html=True)
+
+
 
