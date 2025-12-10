@@ -120,6 +120,30 @@ if "infer_results" not in st.session_state:
     st.session_state.device = None
     st.session_state.backend_device = None  # from /health
 
+# -----------------------------
+# Google Analytics Site Tracking
+# -----------------------------
+import os
+import streamlit as st
+import streamlit.components.v1 as components
+
+GA_ID = os.getenv("SOJENAI_GA_MEASUREMENT_ID")
+
+# Inject GA4 script
+if GA_ID:
+    components.html(
+        f"""
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){{dataLayer.push(arguments);}}
+          gtag('js', new Date());
+          gtag('config', '{GA_ID}');
+        </script>
+        """,
+        height=0,
+    )
 
 # -----------------------------
 # Sidebar
