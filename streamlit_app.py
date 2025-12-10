@@ -252,7 +252,8 @@ st.markdown(
 # Performance indicator: prefer device from last /v1/infer, else from /health
 perf_device = st.session_state.device or st.session_state.backend_device
 if perf_device:
-    perf_color = "#52c41a" if perf_device == "cuda" else "#faad14"
+    perf_color = "#52c41a" if perf_device == "cuda" else "#739bd0"
+    # perf_color = "#52c41a" if perf_device == "cuda" else "#faad14"
     perf_label = "Ultra-fast GPU Mode" if perf_device == "cuda" else "Standard CPU Mode"
 
     st.markdown(
