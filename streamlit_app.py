@@ -78,7 +78,7 @@ def call_health() -> Dict[str, Any]:
 
 def call_infer(texts: List[str]) -> Dict[str, Any]:
     payload = {"texts": texts}
-    headers = {"X-API-Key": os.getenv("SOJEN_API_KEY")}
+    headers = {"X-API-Key": os.getenv("SOJENAI_API_KEY")}
     resp = requests.post(INFER_ENDPOINT, json=payload, headers=headers, timeout=120)
     resp.raise_for_status()
     return resp.json()
