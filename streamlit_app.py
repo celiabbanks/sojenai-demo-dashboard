@@ -151,11 +151,10 @@ JenAI-Moderator provides real-time *Communication Intelligence* for:
     st.markdown(
         """
 This dashboard interfaces with a  
-**secure FastAPI inference layer** powering the  
-JenAI-Moderator engine:
+**secure FastAPI inference layer** powering 
+the JenAI-Moderator engine:
 
-### Models  
-- DistilBERT-based bias classifier  
+- DistilBERT-based bias classifier model  
 - RoBERTa sentiment model  
 - Lexicon-aware severity logic  
 - Adaptive rewrite + advisory module 
@@ -204,10 +203,7 @@ JenAI-Moderator engine:
     ### Security  
     st.markdown("### Security")
     st.markdown("""
-    Backend endpoints require authenticated access  
-    and are intentionally not exposed publicly.  
-    All model evaluation occurs in a protected environment.  
-    The dashboard acts as a visual client interface  
+    Backend endpoints require authenticated access and are intentionally not exposed publicly. All model evaluation occurs in a protected environment. The dashboard acts as a visual client interface  
     for demonstration purposes.
     """
     )
