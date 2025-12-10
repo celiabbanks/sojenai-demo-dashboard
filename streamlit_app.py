@@ -222,8 +222,8 @@ JenAI-Moderator engine:
     )
 
     st.markdown("### Intellectual Property")  
-    st.markdown("**Patent pending. © 2025 SoJen.AI**  
-    Unauthorized sharing or redistribution is prohibited."
+    st.markdown("Patent pending. © 2025 SoJen.AI"  
+    "Unauthorized sharing or redistribution is prohibited."
     )
 
 
