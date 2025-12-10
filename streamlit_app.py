@@ -139,16 +139,27 @@ with st.sidebar:
 **Creator:** Celia Banks  
 **Project:** SoJen.AI — JenAI-Moderator  
 
-JenAI-Moderator provides *Communication Intelligence* for:
+JenAI-Moderator provides real-time *Communication Intelligence* for:
 - Bias detection across multiple categories
 - Severity assessment (none/low/medium/high)
 - Advisory or rewrite responses
+
 """
     )
 
-    st.markdown("### Models")
+    st.markdown("### System Overview")
     st.markdown(
         """
+This dashboard interfaces with a  
+**secure FastAPI inference layer** powering the  
+JenAI-Moderator engine:
+
+### Models  
+- DistilBERT-based bias classifier  
+- RoBERTa sentiment model  
+- Lexicon-aware severity logic  
+- Adaptive rewrite + advisory module 
+
 - **Bias model:** DistilBERT-based classifier  
 - **Sentiment model:** RoBERTa-based classifier  
 - **Categories:** political, racial, sexist, classist, ageism, antisemitic, bullying, brand
@@ -190,13 +201,16 @@ JenAI-Moderator provides *Communication Intelligence* for:
             unsafe_allow_html=True,
         )
 
-    st.markdown("### API Details")
-    st.markdown("**Base URL:**")
-    st.code(API_BASE, language="bash")
-    st.markdown("**Endpoints:**")
-    st.write("- `GET /health` — health & device")
-    st.write("- `POST /v1/infer` — bias scores + severity")
-    st.write("- `POST /v1/mitigate` — advisory/rewrite")
+    ### Security  
+    st.markdown("### Security")
+    st.markdown("""
+    Backend endpoints require authenticated access  
+    and are intentionally not exposed publicly.  
+    All model evaluation occurs in a protected environment.  
+    The dashboard acts as a visual client interface  
+    for demonstration purposes.
+    """
+    )
 
     # -----------------------------
     # Disclaimer 
@@ -206,6 +220,12 @@ JenAI-Moderator provides *Communication Intelligence* for:
         "This demo is part of the patent-pending SoJen.AI system and is "
         "provided for evaluation only. Please do not share this link externally."
     )
+
+    st.markdown("### Intellectual Property")  
+    st.markdown("**Patent pending. © 2025 SoJen.AI**  
+    Unauthorized sharing or redistribution is prohibited."
+    )
+
 
 
 # -----------------------------
