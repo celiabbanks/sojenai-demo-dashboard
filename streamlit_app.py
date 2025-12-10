@@ -299,13 +299,12 @@ st.markdown("""
 # **Welcome to the SoJen.AI Communication Intelligence Demo**
 
 This dashboard previews the engine that powers **SoJen.AI** — a system designed to interpret **tone**, **intent**, 
-and **emotional context** in digital communication.  
-Through our AI persona, **JenAI-Moderator**, the engine provides real-time, emotionally intelligent guidance that helps 
-users communicate more clearly and calmly.
+and **emotional context** in digital communication. Through our AI persona, **JenAI-Moderator**, the engine provides real-time, emotionally intelligent guidance that helps 
+users communicate more clearly and calmly. 
 
 This demo represents **Layer 1** of the SoJen.AI offering: a commercial communication intelligence API.
 
-**Layer 2 — the SoJen social platform — is protected under a U.S. patent application and is not shown here.**  
+**Layer 2 — the SoJen.AI social platform — is protected under a U.S. patent application and is not shown here.**  
 The full platform extends this engine into a wellness-centered digital environment built for calmer, safer communication.
 
 Use this demo to explore how the engine understands messages, detects escalation, and generates constructive alternatives in real time.
@@ -316,7 +315,7 @@ Use this demo to explore how the engine understands messages, detects escalation
 # -----------------------------
 st.markdown("""
 ## **How to Use This Demo**
-
+ 
 Welcome to the **SoJen.AI demonstration dashboard**.  
 This demo highlights how our communication intelligence engine interprets **tone**, **intent**, and **emotional context** 
 in real time and provides supportive guidance through our AI persona, **JenAI-Moderator**.
