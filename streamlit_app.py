@@ -179,7 +179,7 @@ the JenAI-Moderator engine:
 
     # Device badge (GPU / CPU) if health worked
     if health is not None:
-        badge_color = "#52c41a" if device == "cuda" else "#d9d9d9"
+        badge_color = "#52c41a" if device == "cuda" else "#739bd0"
         badge_text = "GPU Acceleration" if device == "cuda" else "CPU Mode"
 
         st.markdown(
