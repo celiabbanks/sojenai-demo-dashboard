@@ -145,7 +145,7 @@ if GA_ID:
         height=0,
     )
 
-st.sidebar.caption(f"GA active: {'yes' if GA_ID else 'no'}")
+# st.sidebar.caption(f"GA active: {'yes' if GA_ID else 'no'}")
 
 # -----------------------------
 # Sidebar
@@ -665,8 +665,7 @@ st.markdown("""
 <div style="text-align:center; font-size:13px; color: #666;">
 <strong>2025 Copyright</strong><br>
 © 2025 SoJen.AI — All Rights Reserved.<br>
-<strong>This demonstration is part of a patent-pending system.<br>
-Unauthorized sharing or distribution is prohibited</strong>.
+<strong>This demonstration is part of a patent-pending system.<br> Unauthorized sharing or distribution is prohibited</strong>.
 </div>
 """, unsafe_allow_html=True)
 
