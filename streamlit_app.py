@@ -145,6 +145,8 @@ if GA_ID:
         height=0,
     )
 
+st.sidebar.caption(f"GA active: {'yes' if GA_ID else 'no'}")
+
 # -----------------------------
 # Sidebar
 # -----------------------------
