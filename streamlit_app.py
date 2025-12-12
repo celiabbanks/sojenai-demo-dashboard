@@ -510,7 +510,7 @@ if results:
                 )
 
                 if st.button("Run Rewrite", key=f"rewrite_{idx}"):
-                    st.markdown("**DEBUG: Run Rewrite handler entered.**")
+                    # st.markdown("**DEBUG: Run Rewrite handler entered.**")
 
                     with st.spinner("Calling /v1/mitigate..."):
                         try:
