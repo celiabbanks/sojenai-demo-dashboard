@@ -447,7 +447,7 @@ if results:
         exp_label = f"Text #{idx+1} — Top category: **{top_label or 'none'}**"
         with st.expander(exp_label, expanded=(idx == 0)):
             # DEBUG so we know the expander content is rendering
-            st.markdown("**DEBUG: Inside expander content.**")
+            # st.markdown("**DEBUG: Inside expander content.**")
 
             # Original text
             st.markdown("**Original text**")
